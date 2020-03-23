@@ -12,7 +12,9 @@ namespace Graphical_PL_Language
 
         {
 
-
+            float wid = width;
+            float hght = height;
+          
 
         }
         public void draw(Graphics g, int x, int y)
