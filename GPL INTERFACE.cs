@@ -32,9 +32,13 @@ namespace Graphical_PL_Language
         private void btnrun_Click(object sender, EventArgs e)
         {
 
-            if (textBox1.Text == "")
+            if (textBox1.Text=="")
             {
                 MessageBox.Show("Enter the Values IN Command Box");
+            }
+            else if(textBox1.Text==null)
+            {
+                MessageBox.Show("Command area cannot be NULL OR EMPTY!!");
             }
             else
             {
@@ -87,8 +91,27 @@ namespace Graphical_PL_Language
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
-            { 
-            
+            {
+                Stream stream = null;
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Title = "Browse Your File from Folder";
+                openFileDialog.InitialDirectory = "C:\\";
+                openFileDialog.Filter = "TXT files(*.txt)|*.txt|All files(*.*)|*.*";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+                
+                if(openFileDialog.ShowDialog()==DialogResult.OK)
+                {
+                    if((stream=openFileDialog.OpenFile()) !=null)
+                    {
+                        using (stream)
+                        {
+
+                            textBox1.Text = File.ReadAllText(openFileDialog.FileName);
+                        }
+                    }
+
+                }
 
             }
 
@@ -107,6 +130,13 @@ namespace Graphical_PL_Language
         private void GPL_INTERFACE_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void oPENToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HelpSection hs = new HelpSection();
+           
+            hs.Show();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Graphical_PL_Language
         public void getvalue(float width, float height, float radius, float hypotenous)
         {
 
-            radius = rad;
+            rad = radius;
 
 
         }

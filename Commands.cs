@@ -14,6 +14,8 @@ namespace Graphical_PL_Language
        
         public int mouseX=0;
         public int mouseY=0;
+        int x;
+        int y;
 
         string[] commands = { "moveto", "drawto" };
         string[] shapes = { "rectangle", "circle", "triangle" };
@@ -46,6 +48,18 @@ namespace Graphical_PL_Language
                     mouseY = int.Parse(parms[1]);
                     g.TranslateTransform(mouseX, mouseY);
                 }
+                if (firstleter == "drawto")
+                {
+                    String args = cmd.Substring(6, (cmd.Length - 6));
+                    String[] parms = args.Split(',');
+                    for (int i = 0; i < parms.Length; i++)
+                    {
+                        parms[i] = parms[i].Trim();
+                    }
+                    x = int.Parse(parms[0]);
+                    y = int.Parse(parms[1]);
+                    g.TranslateTransform(x, y);
+                }
             }
 
         }
@@ -70,8 +84,8 @@ namespace Graphical_PL_Language
                 {
                     float secondletervariable = float.Parse(words[1]);
                     Shapes s = sf.GetShapes("circle");
-                    s.getvalue(0, 0, 0, secondletervariable);
-                    s.draw(g, 50, 50);
+                    s.getvalue(0, 0, secondletervariable,0);
+                    s.draw(g, 0,0);
                 }
 
 
@@ -89,7 +103,7 @@ namespace Graphical_PL_Language
 
                     Shapes s = sf.GetShapes("rectangle");
                     s.getvalue(secondvariable, thirdvariable, 0, 0);
-                    s.draw(g, 100, 100);
+                    s.draw(g, 0,0);
                 }
                 if (firstleter == "triangle")
                 {
@@ -104,8 +118,8 @@ namespace Graphical_PL_Language
                     float four = float.Parse(parms[2]);
 
                     Shapes s = sf.GetShapes("triangle");
-                    s.getvalue(sec, thi, four, 0);
-                    s.draw(g, 100, 100);
+                    s.getvalue(sec, thi, 0, four);
+                    s.draw(g,0,0);
                 }
             }
         }

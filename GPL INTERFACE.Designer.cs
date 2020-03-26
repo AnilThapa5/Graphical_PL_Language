@@ -40,6 +40,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.oPENToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,6 +129,8 @@
             // 
             // helpToolStripMenuItem
             // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.oPENToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
@@ -149,6 +152,13 @@
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Command Area";
+            // 
+            // oPENToolStripMenuItem
+            // 
+            this.oPENToolStripMenuItem.Name = "oPENToolStripMenuItem";
+            this.oPENToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.oPENToolStripMenuItem.Text = "OPEN";
+            this.oPENToolStripMenuItem.Click += new System.EventHandler(this.oPENToolStripMenuItem_Click);
             // 
             // GPL_INTERFACE
             // 
@@ -186,5 +196,6 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem oPENToolStripMenuItem;
     }
 }

@@ -17,25 +17,35 @@ namespace Graphical_PL_Language
 
         {
             heig = height;
-            width = wid;
-            hypotenous = hype;
+            wid = width;
+            hype = hypotenous;
 
         }
-       public void draw(Graphics g, int x, int y)
+        public Boolean checkTriangleValidity()
         {
-            Pen mpen = new Pen(Color.Yellow, 5);
-            Point[] p = new Point[3];
+            // check condition 
+            if (wid + heig <= hype || wid + hype <= heig || heig + hype <= wid)
+                return false;
+            else
+                return true;
+        }
+        public void draw(Graphics g, int x, int y)
+        {
+            if (checkTriangleValidity())
+            {
+                Pen mpen = new Pen(Color.Yellow, 5);
+                Point[] p = new Point[3];
 
-            p[0].X = x;
-            p[0].Y = y;
+                p[0].X = x;
+                p[0].Y = y;
 
-            p[1].X = Convert.ToInt32(x - wid);
-            p[1].Y = y;
+                p[1].X = Convert.ToInt32(x - wid);
+                p[1].Y = y;
 
-            p[3].X = x;
-            p[3].Y = Convert.ToInt32(y -heig);
-            g.DrawPolygon(mpen,p);
-
+                p[2].X = x;
+                p[2].Y = Convert.ToInt32(y - heig);
+                g.DrawPolygon(mpen, p);
+            }
         }
     }
 }
