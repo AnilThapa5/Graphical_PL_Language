@@ -18,7 +18,7 @@ namespace Graphical_PL_Language
         public GPL_INTERFACE()
         {
             InitializeComponent();
-            g=panel1.CreateGraphics();
+            g = panel1.CreateGraphics();
 
         }
 
@@ -32,29 +32,51 @@ namespace Graphical_PL_Language
         private void btnrun_Click(object sender, EventArgs e)
         {
 
-            if (textBox1.Text=="")
+            if (textBox1.Text != null && !textBox1.Text.Equals(""))
             {
-                MessageBox.Show("Enter the Values IN Command Box");
-            }
-            else if(textBox1.Text==null)
-            {
-                MessageBox.Show("Command area cannot be NULL OR EMPTY!!");
-            }
+                GPLValidations val = new GPLValidations(textBox1);
+                if (!val.IsSomethingInvalid)
+                {
+
+                    try
+                    {
+                        string cmd = textBox1.Text;
+                        Commands c = new Commands();
+                        c.pointmove(cmd, g);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        textBox2.Text += "\r\n" + ex.ToString();
+                    }
+                }
+                else if (!val.IsSyntaxValid)
+                {
+                    textBox2.Text += "\r\nCommand Errrs.";
+                }
+                else if (!val.IsParameterValid)
+                {
+                    textBox2.Text += "\r\nParameter Error:";
+                }
+            
             else
             {
-                string cmd = textBox1.Text;
-                Commands c = new Commands();
-                c.Execode(cmd, g);
-                c.pointmove(cmd, g);
+                textBox2.Text += ("Somehing Went Wrong");
             }
-           
-            
-
         }
+           else
+        {
+                textBox2.Text += ("Command Field Cannot Be Empty");
+        }
+
+    }
+            
+        
 
         private void btnreset_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
+            textBox2.Text = "";
             panel1.Refresh();
             g.ResetTransform();
         }
@@ -62,6 +84,7 @@ namespace Graphical_PL_Language
         private void button2_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
+            textBox2.Text = "";
             panel1.Refresh();
         }
 
@@ -129,7 +152,7 @@ namespace Graphical_PL_Language
 
         private void GPL_INTERFACE_Load(object sender, EventArgs e)
         {
-            
+            textBox1.Focus();
         }
 
         private void oPENToolStripMenuItem_Click(object sender, EventArgs e)

@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 using System.Drawing;
 namespace Graphical_PL_Language
 {
-    public class Rectangle : Shapes
+    public class Rectangle:Shapes
     {
 
         private float wid;
-        private float hig;
+        private float heig;
         public void getvalue(float width, float height, float radius, float hypotenous)
 
         {
 
-            float wid = width;
-            float hig = height;
+             wid = width;
+             heig = height;
           
 
         }
@@ -25,7 +25,7 @@ namespace Graphical_PL_Language
         {
 
             Pen mpen = new Pen(Color.Yellow, 5);
-            g.DrawRectangle(mpen, x, y, wid, hig);
+            g.DrawRectangle(mpen, x, y, wid, heig);
 
         }
     }

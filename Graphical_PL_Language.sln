@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29721.120
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphical_PL_Language", "Graphical_PL_Language.csproj", "{662AE919-0187-4336-A4F5-E6B1DBCD11B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject2", "..\UnitTestProject2\UnitTestProject2.csproj", "{F1C10811-7D33-4CE3-AB77-8A3FD3F4DC7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{662AE919-0187-4336-A4F5-E6B1DBCD11B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{662AE919-0187-4336-A4F5-E6B1DBCD11B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{662AE919-0187-4336-A4F5-E6B1DBCD11B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1C10811-7D33-4CE3-AB77-8A3FD3F4DC7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1C10811-7D33-4CE3-AB77-8A3FD3F4DC7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1C10811-7D33-4CE3-AB77-8A3FD3F4DC7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C10811-7D33-4CE3-AB77-8A3FD3F4DC7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

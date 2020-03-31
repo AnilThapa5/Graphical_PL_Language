@@ -38,24 +38,26 @@
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oPENToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.oPENToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(550, 90);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(550, 67);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(238, 294);
+            this.textBox1.Size = new System.Drawing.Size(238, 382);
             this.textBox1.TabIndex = 1;
             // 
             // btnrun
             // 
             this.btnrun.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnrun.Location = new System.Drawing.Point(550, 390);
+            this.btnrun.Location = new System.Drawing.Point(550, 455);
             this.btnrun.Name = "btnrun";
             this.btnrun.Size = new System.Drawing.Size(102, 48);
             this.btnrun.TabIndex = 2;
@@ -66,7 +68,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button2.Location = new System.Drawing.Point(689, 390);
+            this.button2.Location = new System.Drawing.Point(689, 455);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(99, 48);
             this.button2.TabIndex = 3;
@@ -79,7 +81,7 @@
             this.btnreset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnreset.Location = new System.Drawing.Point(12, 27);
             this.btnreset.Name = "btnreset";
-            this.btnreset.Size = new System.Drawing.Size(103, 50);
+            this.btnreset.Size = new System.Drawing.Size(80, 37);
             this.btnreset.TabIndex = 4;
             this.btnreset.Text = "RESET";
             this.btnreset.UseVisualStyleBackColor = false;
@@ -109,14 +111,14 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.loadToolStripMenuItem.Text = "Load";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
@@ -135,10 +137,17 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
+            // oPENToolStripMenuItem
+            // 
+            this.oPENToolStripMenuItem.Name = "oPENToolStripMenuItem";
+            this.oPENToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.oPENToolStripMenuItem.Text = "OPEN";
+            this.oPENToolStripMenuItem.Click += new System.EventHandler(this.oPENToolStripMenuItem_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel1.Location = new System.Drawing.Point(12, 90);
+            this.panel1.Location = new System.Drawing.Point(12, 67);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(532, 348);
             this.panel1.TabIndex = 6;
@@ -147,24 +156,26 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label1.Location = new System.Drawing.Point(618, 74);
+            this.label1.Location = new System.Drawing.Point(618, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Command Area";
             // 
-            // oPENToolStripMenuItem
+            // textBox2
             // 
-            this.oPENToolStripMenuItem.Name = "oPENToolStripMenuItem";
-            this.oPENToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.oPENToolStripMenuItem.Text = "OPEN";
-            this.oPENToolStripMenuItem.Click += new System.EventHandler(this.oPENToolStripMenuItem_Click);
+            this.textBox2.Location = new System.Drawing.Point(12, 421);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(532, 82);
+            this.textBox2.TabIndex = 8;
             // 
             // GPL_INTERFACE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 508);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnreset);
@@ -197,5 +208,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem oPENToolStripMenuItem;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
