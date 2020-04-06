@@ -8,6 +8,10 @@ using System.Drawing;
 
 namespace Graphical_PL_Language
 {
+
+    /// <summary>
+    /// reflect the major class
+    /// </summary>
     public interface Shapes
     {
 
@@ -15,4 +19,5 @@ namespace Graphical_PL_Language
 
         void getvalue(float width, float height, float radius, float hypotenous);
     }
+    
 }

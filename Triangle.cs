@@ -8,11 +8,22 @@ using System.Windows.Forms;
 
 namespace Graphical_PL_Language
 {
+    /// <summary>
+    /// triangle class inheritage the shapes
+    /// </summary>
     public class Triangle : Shapes
     {
         private float heig;
         private float wid;
         private float hype;
+
+        /// <summary>
+        /// passing the parameters
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="radius"></param>
+        /// <param name="hypotenous"></param>
         public void getvalue(float width, float height, float radius, float hypotenous)
 
         {
@@ -21,6 +32,11 @@ namespace Graphical_PL_Language
             hype = hypotenous;
 
         }
+
+        /// <summary>
+        /// implement the triangle validation
+        /// </summary>
+        /// <returns></returns>
         public Boolean checkTriangleValidity()
         {
             // check condition 
@@ -30,6 +46,13 @@ namespace Graphical_PL_Language
             else
                 return true;
         }
+
+        /// <summary>
+        /// draw function for triangle
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
         public void draw(Graphics g, int x, int y)
         {
             if (checkTriangleValidity())
