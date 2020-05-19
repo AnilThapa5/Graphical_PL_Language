@@ -42,7 +42,7 @@ namespace Graphical_PL_Language
                     {
                         string cmd = textBox1.Text;
                         Commands c = new Commands();
-                        c.pointmove(cmd, g);
+                        c.pointmove(cmd, g, panel1);
 
                     }
                     catch (Exception ex)

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Graphical_PL_Language
 {
-    public class Commands
+    public class Commands: GPL_INTERFACE
     {
        
         int mouseX;
@@ -23,7 +23,7 @@ namespace Graphical_PL_Language
         //string[] variables = { "width", "height", "hypotenus", "radius" };
 
 
-        public void pointmove(string cmd, Graphics g)
+        public void pointmove(string cmd, Graphics g, Panel pan)
         {
             try
             { 
@@ -37,9 +37,10 @@ namespace Graphical_PL_Language
             }
             String firstleter = words[0].ToLower();
             Boolean firstletercom = commands.Contains(firstleter);
+                Boolean firstshape = commands.Contains(firstleter);
             if (firstletercom)
             {
-                if (firstleter == "moveto")
+                if (firstleter.ToLower().Equals("moveto"))
                 {
                     String args = cmd.Substring(6, (cmd.Length - 6));
                     String[] parms = args.Split(',');
@@ -51,7 +52,7 @@ namespace Graphical_PL_Language
                     mouseY = int.Parse(parms[1]);
                     g.TranslateTransform(mouseX, mouseY);
                 }
-                if (firstleter == "drawto")
+                if (firstleter.ToLower().Equals("drawto"))
                 {
                     String args = cmd.Substring(6, (cmd.Length - 6));
                     String[] parms = args.Split(',');
@@ -63,7 +64,19 @@ namespace Graphical_PL_Language
                     y_axis = int.Parse(parms[1]);
                     g.TranslateTransform(x_axis, y_axis);
                 }
-            }
+
+                else if(firstleter.ToLower().Equals("clear"))
+
+                    {
+
+                        pan.Refresh();
+                    }
+
+                else if(firstleter.ToLower().Equals("reset"))
+                    {
+                       g.ResetTransform();
+                    }
+                }
 
       
                 Boolean firstleterShape = shapes.Contains(firstleter);
@@ -71,16 +84,23 @@ namespace Graphical_PL_Language
 
                 if (firstleterShape)
                 {
-                    if (firstleter == "circle")
+                    if (firstleter.ToLower().Equals("circle"))
                     {
-                        float shapethree = float.Parse(words[1]);                      
-                        Shapes s = sf.GetShapes("circle");
-                        s.getvalue(0, 0,shapethree, 0);
-                        s.draw(g, x_axis, y_axis);
+                        string args = cmd.Substring(6, (cmd.Length - 6));
+                        string[] parms = args.Split(',');
+                        for (int i = 0; i < parms.Length; i++)
+                        {
+                            parms[i] = parms[i].Trim();
+                        }
+                            float shapethree = float.Parse(words[1]);
+                            Shapes s = sf.GetShapes("circle");
+                            s.getvalue(0, 0, shapethree, 0);
+                            s.draw(g, x_axis, y_axis);
+                        
                     }
 
 
-                    else if (firstleter == "rectangle") 
+                    else if (firstleter.ToLower().Equals("rectangle")) 
                     {
                         String args = cmd.Substring(9, (cmd.Length - 9));
                         String[] parms = args.Split(',');
@@ -100,7 +120,7 @@ namespace Graphical_PL_Language
 
                     }
                   
-                    if (firstleter == "triangle")
+                    if (firstleter.ToLower().Equals("triangle"))
                     {
                         String args = cmd.Substring(8, (cmd.Length - 8));
                         String[] parms = args.Split(',');
