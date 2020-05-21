@@ -31,6 +31,7 @@ namespace Graphical_PL_Language
 
         private void btnrun_Click(object sender, EventArgs e)
         {
+            
 
             if (textBox1.Text != null && !textBox1.Text.Equals(""))
             {
