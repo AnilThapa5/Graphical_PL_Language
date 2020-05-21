@@ -42,6 +42,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btncanvas = new System.Windows.Forms.Button();
+            this.btnpoly = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,21 +113,21 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.loadToolStripMenuItem.Text = "Load";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -170,11 +172,33 @@
             this.textBox2.Size = new System.Drawing.Size(532, 82);
             this.textBox2.TabIndex = 8;
             // 
+            // btncanvas
+            // 
+            this.btncanvas.Location = new System.Drawing.Point(110, 27);
+            this.btncanvas.Name = "btncanvas";
+            this.btncanvas.Size = new System.Drawing.Size(87, 34);
+            this.btncanvas.TabIndex = 9;
+            this.btncanvas.Text = " CANVAS";
+            this.btncanvas.UseVisualStyleBackColor = true;
+            this.btncanvas.Click += new System.EventHandler(this.btncanvas_Click);
+            // 
+            // btnpoly
+            // 
+            this.btnpoly.Location = new System.Drawing.Point(203, 27);
+            this.btnpoly.Name = "btnpoly";
+            this.btnpoly.Size = new System.Drawing.Size(97, 34);
+            this.btnpoly.TabIndex = 10;
+            this.btnpoly.Text = "POLYGON";
+            this.btnpoly.UseVisualStyleBackColor = true;
+            this.btnpoly.Click += new System.EventHandler(this.btnpoly_Click);
+            // 
             // GPL_INTERFACE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 508);
+            this.Controls.Add(this.btnpoly);
+            this.Controls.Add(this.btncanvas);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -209,5 +233,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem oPENToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btncanvas;
+        private System.Windows.Forms.Button btnpoly;
     }
 }
