@@ -58,7 +58,7 @@ namespace Graphical_PL_Language
             }
             public void CheckCmdLineValidation(string cmd)
             {
-                String[] syntaxs = { "drawto", "moveto", "run" };
+                String[] syntaxs = { "drawto", "moveto", "run","clear","reset" };
                 String[] shapes = { "circle", "rectangle", "triangle" };
                 String[] variables = { "radius", "width", "height", "hypotenuse" };
                 cmd = Regex.Replace(cmd, @"\s+", " ");
@@ -72,35 +72,42 @@ namespace Graphical_PL_Language
                 Boolean firstWordIsShape = shapes.Contains(firstWord);
                 Boolean firstWordIsVariable = variables.Contains(firstWord);
 
-                if (firstWordIsSyntax)
+            if (firstWordIsSyntax)
+            {
+                if (firstWord.Equals("drawto") || firstWord.Equals("moveto"))
                 {
-                    if (firstWord.Equals("drawto") || firstWord.Equals("moveto"))
-                    {
-                        String args = cmd.Substring(6, (cmd.Length - 6));
-                        String[] parms = args.Split(',');
+                    String args = cmd.Substring(6, (cmd.Length - 6));
+                    String[] parms = args.Split(',');
 
-                        if (parms.Length == 2)
+                    if (parms.Length == 2)
+                    {
+                        for (int i = 0; i < parms.Length; i++)
                         {
-                            for (int i = 0; i < parms.Length; i++)
+                            if (!parms[i].Trim().All(char.IsDigit))
                             {
-                                if (!parms[i].Trim().All(char.IsDigit))
-                                {
-                                    IsCmdValid = false;
-                                }
+                                IsCmdValid = false;
                             }
                         }
-                        else
-                        {
-                            IsCmdValid = false;
-                        }
                     }
-                    else if (firstWord.Equals("run"))
+                    else
                     {
-                        if (commandsAfterSpliting.Length != 1)
-                        {
-                            IsCmdValid = false;
-                        }
+                        IsCmdValid = false;
                     }
+                }
+                else if (firstWord.Equals("clear") || firstWord.Equals("reset"))
+                {
+                    IsCmdValid = true;
+                }
+            
+
+
+            else if (firstWord.Equals("run"))
+            {
+                if (commandsAfterSpliting.Length != 1)
+                {
+                    IsCmdValid = false;
+                }
+            }
                 }
                 else if (firstWordIsShape)
                 {
@@ -118,6 +125,7 @@ namespace Graphical_PL_Language
                         }
                         else { IsCmdValid = false; IsParameterValid = false; }
                     }
+    
                     else if (firstWord.ToLower().Equals("rectangle"))
                     {
                         String args = cmd.Substring(9, (cmd.Length - 9));

@@ -12,13 +12,14 @@ namespace Graphical_PL_Language
 {
     public class Commands: GPL_INTERFACE
     {
-       
+
+        float angle;
         int mouseX;
         int mouseY;
         int x_axis;
         int y_axis;
 
-        string[] commands = { "moveto", "drawto" };
+        string[] commands = { "moveto", "drawto","rotate" };
         string[] shapes = { "rectangle", "circle", "triangle" };
         //string[] variables = { "width", "height", "hypotenus", "radius" };
 
@@ -65,6 +66,21 @@ namespace Graphical_PL_Language
                     g.TranslateTransform(x_axis, y_axis);
                 }
 
+                if(firstleter.ToLower().Equals("rotate"))
+                    {
+                        string args = cmd.Substring(6, (cmd.Length - 6));
+                        string[] parms = args.Split(',');
+                        for (int i = 0; i < parms.Length; i++)
+                        {
+                            parms[i] = parms[i].Trim();
+                        }
+
+                        angle = float.Parse(parms[0]);
+                        g.RotateTransform(angle);
+
+
+                    }
+
                 else if(firstleter.ToLower().Equals("clear"))
 
                     {
@@ -96,8 +112,8 @@ namespace Graphical_PL_Language
                             Shapes s = sf.GetShapes("circle");
                             s.getvalue(0, 0, shapethree, 0);
                             s.draw(g, x_axis, y_axis);
-                        
                     }
+                   
 
 
                     else if (firstleter.ToLower().Equals("rectangle")) 
@@ -117,9 +133,10 @@ namespace Graphical_PL_Language
                         s.getvalue(shapef, shapes, 0, 0);
                         s.draw(g, x_axis, y_axis);
 
-
+                       
                     }
                   
+
                     if (firstleter.ToLower().Equals("triangle"))
                     {
                         String args = cmd.Substring(8, (cmd.Length - 8));
