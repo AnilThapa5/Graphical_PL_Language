@@ -80,10 +80,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FactoryShapes.cs" />
-    <Compile Include="GPL INTERFACE.cs">
+    <Compile Include="View\GPL INTERFACE.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GPL INTERFACE.Designer.cs">
+    <Compile Include="View\GPL INTERFACE.Designer.cs">
       <DependentUpon>GPL INTERFACE.cs</DependentUpon>
     </Compile>
     <Compile Include="GPLValidations.cs" />
@@ -98,7 +98,7 @@
     <Compile Include="Rectangle.cs" />
     <Compile Include="Shapes.cs" />
     <Compile Include="Triangle.cs" />
-    <EmbeddedResource Include="GPL INTERFACE.resx">
+    <EmbeddedResource Include="View\GPL INTERFACE.resx">
       <DependentUpon>GPL INTERFACE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HelpSection.resx">
@@ -138,6 +138,10 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controller\" />
+    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

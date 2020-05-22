@@ -41,9 +41,9 @@ namespace Graphical_PL_Language
 
                     try
                     {
-                        string cmd = textBox1.Text;
+                       
                         Commands c = new Commands();
-                        c.pointmove(cmd, g, panel1);
+                        c.loadCommand(textBox1,g,panel1);
 
                     }
                     catch (Exception ex)
