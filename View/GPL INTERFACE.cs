@@ -76,9 +76,10 @@ namespace Graphical_PL_Language
 
         private void btnreset_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "";
+          
             textBox2.Text = "";
             panel1.Refresh();
+            
             g.ResetTransform();
         }
 
@@ -176,7 +177,7 @@ namespace Graphical_PL_Language
 
         private void btnpoly_Click(object sender, EventArgs e)
         {
-            Pen blackPen = new Pen(Color.Black, 3);
+            Pen blackPen = new Pen(Color.Yellow, 3);
 
             // Create points that define polygon.
             Point point1 = new Point(50, 50);

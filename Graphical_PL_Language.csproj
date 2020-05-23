@@ -75,33 +75,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Circle.cs" />
-    <Compile Include="Commands.cs">
+    <Compile Include="Model\Circle.cs" />
+    <Compile Include="Controller\Commands.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FactoryShapes.cs" />
+    <Compile Include="Model\FactoryShapes.cs" />
     <Compile Include="View\GPL INTERFACE.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\GPL INTERFACE.Designer.cs">
       <DependentUpon>GPL INTERFACE.cs</DependentUpon>
     </Compile>
-    <Compile Include="GPLValidations.cs" />
-    <Compile Include="HelpSection.cs">
+    <Compile Include="Controller\GPLValidations.cs" />
+    <Compile Include="View\HelpSection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HelpSection.Designer.cs">
+    <Compile Include="View\HelpSection.Designer.cs">
       <DependentUpon>HelpSection.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rectangle.cs" />
-    <Compile Include="Shapes.cs" />
-    <Compile Include="Triangle.cs" />
+    <Compile Include="Model\Rectangle.cs" />
+    <Compile Include="Model\Shapes.cs" />
+    <Compile Include="Model\Triangle.cs" />
     <EmbeddedResource Include="View\GPL INTERFACE.resx">
       <DependentUpon>GPL INTERFACE.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HelpSection.resx">
+    <EmbeddedResource Include="View\HelpSection.resx">
       <DependentUpon>HelpSection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -139,9 +139,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controller\" />
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

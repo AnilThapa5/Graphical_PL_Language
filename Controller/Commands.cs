@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Graphical_PL_Language
 {
+    /// <summary>
+    /// command class that inheritance the Interface
+    /// </summary>
     public class Commands: GPL_INTERFACE
     {
 
@@ -24,15 +27,25 @@ namespace Graphical_PL_Language
         /// Global variable. 
         /// </summary>
         public int width = 0;
-       
+       /// <summary>
+       /// variables
+       /// </summary>
         public int height = 0;
-       
+       /// <summary>
+       /// variables
+       /// </summary>
         public int hypotenus = 0;
-      
+      /// <summary>
+      /// variables
+      /// </summary>
         public int counter = 0;
-       
+       /// <summary>
+       /// variables
+       /// </summary>
         public int loopnumber = 0;
-       
+       /// <summary>
+       /// variables
+       /// </summary>
         public int dsize = 0;
 
         TextBox textBox;
@@ -44,6 +57,12 @@ namespace Graphical_PL_Language
         string[] shapes = { "rectangle", "circle", "triangle" };
         string[] variables = { "width", "height", "hypotenus", "radius","counter","size" };
 
+        /// <summary>
+        /// load command with paremeters
+        /// </summary>
+        /// <param name="textBoxCmd"></param>
+        /// <param name="graph"></param>
+        /// <param name="panelDraw"></param>
 
         public void loadCommand(TextBox textBoxCmd, Graphics graph, Panel panelDraw)
         {
@@ -63,7 +82,7 @@ namespace Graphical_PL_Language
             }
         }
         /// <summary>
-        /// function for running loop statement commands.
+        /// functionrunning the loop command for input parameter
         /// </summary>
         /// <param name="singleLineCommand"></param>
         private void RunCommand(String singleLineCommand)
@@ -274,7 +293,10 @@ namespace Graphical_PL_Language
 
 
 
-
+        /// <summary>
+        /// pointmove command with string type paremeter
+        /// </summary>
+        /// <param name="cmd"></param>
         public void pointmove(string cmd)
         {
             try
