@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,9 @@ namespace Graphical_PL_Language
     public partial class GPL_INTERFACE : Form
     {
         Graphics g;
+        /// <summary>
+        /// initialization of companent begin here
+        /// </summary>
         public GPL_INTERFACE()
         {
             InitializeComponent();
@@ -53,11 +57,11 @@ namespace Graphical_PL_Language
                 }
                 else if (!val.IsSyntaxValid)
                 {
-                    textBox2.Text += "\r\nCommand Errrs.";
+                    textBox2.Text += "\r\nCommand Errrs. ENTER LIKE eg: circle 50";
                 }
                 else if (!val.IsParameterValid)
                 {
-                    textBox2.Text += "\r\nParameter Error:";
+                    textBox2.Text += "\r\nParameter Error. ENTER LIKE eg: 20";
                 }
             
             else

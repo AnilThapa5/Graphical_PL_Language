@@ -9,20 +9,35 @@ using System.Windows.Forms;
 
 namespace Graphical_PL_Language
 {
-
+    /// <summary>
+    /// validation class 
+    /// this class contains all the validation checked of programs
+    /// </summary>
     public class GPLValidations
     {
-
+       
         private Boolean isCmdValid = true;
+        /// <summary>
+        /// gets the value of IsCmdValid
+        /// returns the result value 
+        /// </summary>
         public bool IsCmdValid { get => isCmdValid; set => isCmdValid = value; }
 
         private Boolean isSyntaxValid = true;
+        /// <summary>
+        /// get the value of syntax and return 
+        /// </summary>
         public bool IsSyntaxValid { get => isSyntaxValid; set => isSyntaxValid = value; }
         private Boolean isParameterValid = true;
-
+        /// <summary>
+        /// get the value of parameter and return valid 
+        /// </summary>
         public bool IsParameterValid { get => isParameterValid; set => isParameterValid = value; }
-
+       
         private Boolean isSomethingInvalid = false;
+        /// <summary>
+        /// get the syntax and return if something missing
+        /// </summary>
         public bool IsSomethingInvalid { get => isSomethingInvalid; set => isSomethingInvalid = value; }
 
         private int LineNumber = 0;
@@ -37,26 +52,52 @@ namespace Graphical_PL_Language
         private int loopLineNo;
         private int endLoopLineNo;
         private int ifLineNo;
-
+        /// <summary>
+        /// get the line number and return
+        /// </summary>
         public int lineNumber { get => lineNumber; set => lineNumber = value; }
-
+        /// <summary>
+        /// get if syntax contains loop
+        /// </summary>
         public bool DoesCmdHasLoop { get => doesCmdHasLoop; set => doesCmdHasLoop = value; }
-
+        /// <summary>
+        /// get if syntax closed with end loop
+        /// if the loop has been used
+        /// </summary>
         public bool DoesCmdHasEndLoop { get => doesCmdHasEndLoop; set => doesCmdHasEndLoop = value; }
-
+        /// <summary>
+        /// check if the command has if condition
+        /// </summary>
         public bool DoesCmdHasIf { get => doesCmdHasIf; set => doesCmdHasIf = value; }
-
+        /// <summary>
+        /// get the command and return the value of end if
+        /// </summary>
         public bool DoesCmdHasEndif { get => DoesCmdHasEndif; set => DoesCmdHasEndif = value; }
-
+        /// <summary>
+        /// get the value and return the loop 
+        /// </summary>
         public int LoopLineNo { get => loopLineNo; set => loopLineNo = value; }
-
+        /// <summary>
+        /// check the command if loop is 
+        /// encloused with end loop
+        /// </summary>
         public int EndLoopLineNo { get => endLoopLineNo; set => endLoopLineNo = value; }
-
+        /// <summary>
+        /// ge the line no
+        /// return line number
+        /// </summary>
         public int IfLineNo { get => ifLineNo; set => ifLineNo = value; }
-
+        /// <summary>
+        /// check the command consist of end if
+        /// </summary>
         public int EndIfLineNo { get => endIfLineNo; set => endIfLineNo = value; }
 
         TextBox textCmd;
+        /// <summary>
+        /// checking every validation
+        /// and return the result
+        /// </summary>
+        /// <param name="textCmd"></param>
         public GPLValidations(TextBox textCmd)
         {
             this.textCmd = textCmd;
@@ -88,6 +129,11 @@ namespace Graphical_PL_Language
                 }
             }
         }
+        /// <summary>
+        /// checking every command that entered
+        /// and returning the value as per it
+        /// </summary>
+        /// <param name="cmd"></param>
         public void CheckCmdLineValidation(string cmd)
         {
             String[] syntaxs = { "drawto", "moveto", "run", "clear", "reset", "loop", "endloop", "if", "endif" };
@@ -283,7 +329,10 @@ namespace Graphical_PL_Language
 
         }
 
-
+        /// <summary>
+        /// checking command for loop and if 
+        /// returns the value as per the command entered
+        /// </summary>
 
         public void CheckCmdLoopAndIfValidation()
         {

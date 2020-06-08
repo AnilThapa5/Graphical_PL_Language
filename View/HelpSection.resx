@@ -140,6 +140,14 @@ draw
              moveto 50,50 (enter the run button)
              circle 50 (press run button)
 
+loop:
+
+  eg:
+       loop 5
+       moveto 50,50
+       circle 50
+       endloop
+
 Help Section:
 
 For beginner and user mannual</value>

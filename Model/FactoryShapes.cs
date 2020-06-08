@@ -6,8 +6,18 @@ using System.Threading.Tasks;
 
 namespace Graphical_PL_Language
 {
+
+    /// <summary>
+    /// factory shape class 
+    /// it contains the shapes and return the shapes
+    /// </summary>
    public class FactoryShapes
     {
+        /// <summary>
+        /// method that return the string type parameter
+        /// </summary>
+        /// <param name="shapestypes"></param>
+        /// <returns></returns>
         public Shapes GetShapes(string shapestypes)
         {
             if (shapestypes == null)

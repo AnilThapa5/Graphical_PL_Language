@@ -21,7 +21,9 @@ namespace Graphical_PL_Language
         int mouseY;
         int x_axis;
         int y_axis;
-
+        /// <summary>
+        /// global variables radius
+        /// </summary>
         public int radius = 0;
         /// <summary>
         /// Global variable. 
