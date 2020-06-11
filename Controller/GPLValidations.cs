@@ -138,7 +138,7 @@ namespace Graphical_PL_Language
         {
             String[] syntaxs = { "drawto", "moveto", "run", "clear", "reset", "loop", "endloop", "if", "endif" };
             String[] shapes = { "circle", "rectangle", "triangle" };
-            String[] variables = { "radius", "width", "height", "hypotenuse" };
+            String[] variables = { "radius", "width", "height", "hypotenuse","counter" };
             cmd = Regex.Replace(cmd, @"\s+", " ");
             string[] commandsAfterSpliting = cmd.Split(' ');
             for (int i = 0; i < commandsAfterSpliting.Length; i++)
@@ -396,6 +396,51 @@ namespace Graphical_PL_Language
                     IsCmdValid = false;
                     MessageBox.Show("IF Not Ended with 'ENDIF'");
                 }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="variable"></param>
+        public void checkIfVariableDefined(string variable)
+        {
+            Boolean isvariablefound = false;
+            if (textCmd.Lines.Length > 1)
+            {
+                if (lineNumber > 0)
+                {
+                    for (int i = 0; i < lineNumber; i++)
+                    {
+                        String oneLineCommand = textCmd.Lines[i];
+                        oneLineCommand = oneLineCommand.Trim();
+                        if (!oneLineCommand.Equals(""))
+                        {
+                            Boolean isVariableDefined = oneLineCommand.ToLower().Contains(variable.ToLower());
+                            if (isVariableDefined)
+                            {
+                                isvariablefound = true;
+                            }
+                        }
+
+                    }
+                    if (!isvariablefound)
+                    {
+                        MessageBox.Show("Variable is not defined");
+                        IsCmdValid = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Variable is not defined");
+                    IsCmdValid = false;
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Variable is not defined");
+                IsCmdValid = false;
             }
         }
     }
