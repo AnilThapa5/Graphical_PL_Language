@@ -148,6 +148,13 @@ loop:
        circle 50
        endloop
 
+if:
+
+counter = 1
+if counter = 1 then
+circle 100
+endif
+
 Help Section:
 
 For beginner and user mannual</value>
