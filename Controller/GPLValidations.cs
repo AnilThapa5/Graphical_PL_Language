@@ -41,12 +41,14 @@ namespace Graphical_PL_Language
         public bool IsSomethingInvalid { get => isSomethingInvalid; set => isSomethingInvalid = value; }
 
         private int LineNumber = 0;
-
+       
         private Boolean doesCmdHasLoop = false;
 
         private Boolean doesCmdHasEndLoop = false;
 
         private Boolean doesCmdHasIf = false;
+
+        private Boolean doesCmdHasEndIf = false;
 
         private int endIfLineNo = 0;
         private int loopLineNo;
@@ -72,7 +74,7 @@ namespace Graphical_PL_Language
         /// <summary>
         /// get the command and return the value of end if
         /// </summary>
-        public bool DoesCmdHasEndif { get => DoesCmdHasEndif; set => DoesCmdHasEndif = value; }
+        public bool DoesCmdHasEndif { get => doesCmdHasEndIf; set => doesCmdHasEndIf = value; }
         /// <summary>
         /// get the value and return the loop 
         /// </summary>
@@ -118,14 +120,16 @@ namespace Graphical_PL_Language
                             if (!IsParameterValid) { MessageBox.Show("Paramter errors at: " + LineNumber); }
                             else if (!IsSyntaxValid) { MessageBox.Show("Syntax errors at: " + LineNumber); }
                             else { MessageBox.Show("Syntax error at: " + LineNumber); }
-                            IsSomethingInvalid = true;
+                            isCmdValid = true;
                         }
-                        else
-                        {
-
-                        }
+                       
                     }
 
+                }
+                CheckCmdLoopAndIfValidation();
+                if (!isCmdValid)
+                {
+                    isSomethingInvalid = true;
                 }
             }
         }
@@ -178,8 +182,7 @@ namespace Graphical_PL_Language
 
                 }
 
-                ////
-                ///
+              
 
                 else if (firstWord.Equals("loop"))
                 {
@@ -257,10 +260,15 @@ namespace Graphical_PL_Language
                 {
                     if (commandsAfterSpliting.Length == 2)
                     {
-                        if (commandsAfterSpliting[1].Trim().All(char.IsDigit)) { }
+                        if (commandsAfterSpliting[1].Trim().All(char.IsDigit))
+                        {
+                        }
                         else if (commandsAfterSpliting[1].Trim().All(char.IsLetter))
                         {
-                            if (variables.Contains(commandsAfterSpliting[1].ToLower())) { }
+                            if (variables.Contains(commandsAfterSpliting[1].ToLower())) 
+                            {
+                                checkIfVariableDefined(commandsAfterSpliting[1]);
+                            }
                             else { IsCmdValid = false; IsParameterValid = false; }
                         }
                         else { IsCmdValid = false; IsParameterValid = false; }
@@ -278,10 +286,15 @@ namespace Graphical_PL_Language
                         for (int i = 0; i < parms.Length; i++)
                         {
                             parms[i] = parms[i].Trim();
-                            if (parms[i].All(char.IsDigit)) { }
+                            if (parms[i].All(char.IsDigit))
+                            {
+                            }
                             else if (parms[i].All(char.IsLetter))
                             {
-                                if (variables.Contains(parms[i].ToLower())) { }
+                                if (variables.Contains(parms[i].ToLower()))
+                                {
+                                    checkIfVariableDefined(parms[i]);
+                                }
                                 else { IsCmdValid = false; IsParameterValid = false; }
                             }
                             else { IsCmdValid = false; IsParameterValid = false; }
@@ -300,10 +313,15 @@ namespace Graphical_PL_Language
                         for (int i = 0; i < parms.Length; i++)
                         {
                             parms[i] = parms[i].Trim();
-                            if (parms[i].All(char.IsDigit)) { }
+                            if (parms[i].All(char.IsDigit))
+                            {
+                            }
                             else if (parms[i].All(char.IsLetter))
                             {
-                                if (variables.Contains(parms[i].ToLower())) { }
+                                if (variables.Contains(parms[i].ToLower()))
+                                {
+                                    checkIfVariableDefined(parms[i]);
+                                }
                                 else { IsCmdValid = false; IsParameterValid = false; }
                             }
                             else { IsCmdValid = false; IsParameterValid = false; }
@@ -343,37 +361,60 @@ namespace Graphical_PL_Language
                 singleLineCmd = singleLineCmd.Trim();
                 if (!singleLineCmd.Equals(""))
                 {
-                    DoesCmdHasLoop = Regex.IsMatch(singleLineCmd.ToLower(), "loop");
-                    if (DoesCmdHasLoop)
+                    doesCmdHasLoop = Regex.IsMatch(singleLineCmd.ToLower(), @"\bloop\b");
+                    if (doesCmdHasLoop)
                     {
-                        LoopLineNo = (i + 1);
+                        loopLineNo = (i + 1);
                     }
-                    DoesCmdHasEndLoop = singleLineCmd.ToLower().Contains("endloop");
-                    if (DoesCmdHasEndLoop)
+                   doesCmdHasEndLoop = singleLineCmd.ToLower().Contains("endloop");
+                    if (doesCmdHasEndLoop)
                     {
-                        EndLoopLineNo = (i + 1);
+                        endLoopLineNo = (i + 1);
                     }
-                    DoesCmdHasIf = Regex.IsMatch(singleLineCmd.ToLower(), "if");
-                    if (DoesCmdHasIf)
+                    doesCmdHasIf = Regex.IsMatch(singleLineCmd.ToLower(), @"\bif\b");
+                    if (doesCmdHasIf)
                     {
-                        IfLineNo = (i + 1);
+                        ifLineNo = (i + 1);
                     }
-                    DoesCmdHasEndif = singleLineCmd.ToLower().Contains("endif");
-                    if (DoesCmdHasEndif)
+                    doesCmdHasEndIf = singleLineCmd.ToLower().Contains("endif");
+                    if (doesCmdHasEndIf)
                     {
-                        EndIfLineNo = (i + 1);
+                        endIfLineNo = (i + 1);
                     }
                 }
             }
-            if (DoesCmdHasLoop)
+            if (loopLineNo > 0)
             {
-                if (DoesCmdHasEndLoop)
+                doesCmdHasLoop = true;
+            }
+            if (endLoopLineNo > 0)
+            {
+                doesCmdHasLoop= true;
+            }
+            if (ifLineNo > 0)
+            {
+                doesCmdHasIf = true;
+            }
+            if (endIfLineNo > 0)
+            {
+                doesCmdHasEndIf = true;
+            }
+
+            if (doesCmdHasLoop)
+            {
+                if (doesCmdHasEndLoop)
                 {
-                    if (LoopLineNo > EndLoopLineNo)
+                    if (loopLineNo < endLoopLineNo)
+                    {
+
+                    }
+
+                    else
                     {
                         IsCmdValid = false;
-                        MessageBox.Show("'ENDLOOP' must be after loop start: Loop starts at" + LoopLineNo + " Loop ends at: " + EndLoopLineNo);
+                        MessageBox.Show("EndLoop must be after loop start");
                     }
+
                 }
                 else
                 {
@@ -381,20 +422,25 @@ namespace Graphical_PL_Language
                     MessageBox.Show("Loop Not Ended with 'ENDLOOP'");
                 }
             }
-            if (DoesCmdHasIf)
+            if (doesCmdHasIf)
             {
-                if (DoesCmdHasEndif)
+                if (doesCmdHasIf)
                 {
-                    if (EndIfLineNo < IfLineNo)
+                    if (ifLineNo < endIfLineNo)
+                    {
+
+                    }
+
+                    else
                     {
                         IsCmdValid = false;
-                        MessageBox.Show("'ENDIF' must be after IF: If starts at" + IfLineNo + " and ends at: " + EndIfLineNo);
+                        MessageBox.Show("'ENDIF' must be after IF");
                     }
                 }
                 else
                 {
                     IsCmdValid = false;
-                    MessageBox.Show("IF Not Ended with 'ENDIF'");
+                    MessageBox.Show("IF Must Ended with 'ENDIF'");
                 }
             }
         }
